@@ -48,8 +48,11 @@ hitbox_group = pygame.sprite.Group()
 hitbox_group.add(hitbox)
 hitbox.shoot()
 
-while True:
+running = True
+while running:
   for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      running = False
     if event.type == pygame.MOUSEBUTTONDOWN:
       print("shoot")
       hitbox.shoot()
@@ -64,3 +67,4 @@ while True:
   hitbox_group.update()
 
   clock.tick(60)
+pygame.quit()
